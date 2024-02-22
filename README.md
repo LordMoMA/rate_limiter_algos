@@ -71,15 +71,15 @@ The Leaky Bucket algorithm is used to control the rate at which requests are pro
 
 In this algorithm, each request adds a certain amount of "water" to the bucket. If the bucket is full, additional requests cause the bucket to "overflow", and these requests are rejected. Over time, "water" leaks out of the bucket at a constant rate, making room for more requests.
 
-In your case, it seems like the bucket has a capacity of 10, a leak rate of 1 per second, and you're making a request every 500 milliseconds.
+In this case, the bucket has a capacity of 10, a leak rate of 1 per second, and you're making a request every 500 milliseconds.
 
-Here's how the output you posted corresponds to the Leaky Bucket algorithm:
+Here's how the output corresponds to the Leaky Bucket algorithm:
 
 At the start, the bucket is empty. The first 10 requests (LeakyBucket: true) are accepted and add "water" to the bucket.
 
 The 11th request causes the bucket to overflow (LeakyBucket: false), because it arrives before any "water" has had a chance to leak out.
 
-After this, every other request is rejected. This is because you're making requests twice as fast as the leak rate. So for every two requests, one "leak" occurs. This means one request is accepted (the "water" from it is immediately leaked out), and one request causes the bucket to overflow.
+After this, every other request is rejected. This is because we're making requests twice as fast as the leak rate. So for every two requests, one "leak" occurs. This means one request is accepted (the "water" from it is immediately leaked out), and one request causes the bucket to overflow.
 
 This pattern continues for the rest of the requests. The Leaky Bucket algorithm ensures that the rate of outgoing requests is constant, even if the rate of incoming requests is bursty.
 

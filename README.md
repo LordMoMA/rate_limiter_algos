@@ -1,3 +1,9 @@
+## How to run the application
+
+```bash
+./rate_limiter
+```
+
 ## Leaky Bucket and Token Bucket
 
 The Leaky Bucket and Token Bucket are two algorithms used for rate limiting. They have different behaviors and use cases:
